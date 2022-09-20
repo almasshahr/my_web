@@ -1,0 +1,55 @@
+{% extends '_base.html' %}
+{% block title %} ثبت و ویرایش پست {% endblock title %}
+<!------------------------->
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card text-bg-light mb-3">
+                <div class="card-header">دسته بندی مطالب</div>
+                <div class="card-body">
+                    <p class="card-text">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
+                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
+                        برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع
+                        با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
+                        شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
+                        متخصصان را می طلبد
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+
+            <div class="card mb-3 ">
+                <div class="card-header"><h4>ثبت پست</h4></div>
+                <div class="card-body p-4">
+                       <form method="post">
+                           {% csrf_token%}
+                           {{ form.title }}
+                           <br>
+                           {{ form.text }}
+                            <br>
+                           <div class="row">
+                           <div class="col-6">{{ form.auther }}</div>
+                           <div class="col-6">{{ form.status }}</div>
+                            </div><br>
+
+                          {% comment %}
+                          <div class="form-floating mb-3">
+                              <input type="text" name="title" class="form-control" id="floatingInputValue" placeholder="عنوان پست">
+                              <label for="floatingInputValue">عنوان پست</label>
+                           </div>
+                           <div class="form-floating mb-3">
+                              <textarea name="text" class="form-control" placeholder="متن پست" id="floatingTextarea2" style="height: 200px"></textarea>
+                              <label for="floatingTextarea2">متن پست</label>
+                            </div>
+                            {% endcomment %}
+                           <button type="submit" class="btn btn-success">ثبت پست</button>
+                       </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+<!------------------------->

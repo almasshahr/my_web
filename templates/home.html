@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+{% block title %} صفحه نخست {% endblock title %}
+<!------------------------->
+{% block content %}
+
+    {% for page in pages %}
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.text }}</p>
+        <h4>{{ page.auther }}</h4>
+        <hr>
+    {% endfor %}
+
+{% endblock content %}
+<!------------------------->
+
+
+
+
+
+

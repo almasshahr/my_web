@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+{% block title %} بلاگ {% endblock title %}
+<!------------------------->
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card text-bg-light mb-3">
+                <div class="card-header">دسته بندی مطالب</div>
+                <div class="card-body">
+                    <p class="card-text">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
+                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
+                        برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع
+                        با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
+                        شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
+                        متخصصان را می طلبد
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            {% for post in all_post_pub %}
+
+                <div class="card mb-3">
+                    <div class="card-header"><h4>{{ post.title }}</h4></div>
+                    <div class="card-body">
+                        <h6 class="card-title pb-2 border-bottom" style="text-align: left">
+                            <b>{{ post.auther }}</b>   |
+                            <b>{{ post.created_modified }}</b></h6>
+                        <p class="card-text">{{ post.text }}</p>
+                    </div>
+                    <div class="card-footer text-muted"
+                         style="text-align: left">
+                        <a href="{% url 'post_detail_blog' post.id %}" class="btn btn-secondary">ادامه مطلب </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock content %}
+<!------------------------->

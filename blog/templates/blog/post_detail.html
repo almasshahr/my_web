@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% block title %} {{ post.title }} {% endblock title %}
+<!------------------------->
+{% block content %}
+    <div class="row">
+
+        <div class="col-lg-12">
+
+                <div class="card mb-3">
+                    <div class="card-header"><h4>{{ post.title }}</h4></div>
+                    <div class="card-body">
+                            <div class="row mb-3 pb-2 border-bottom">
+                                <div class="col-6">
+                                   <a href="{% url 'post_edit_blog' post.id %}" type="button" class="btn btn-warning float-start me-1">ویرایش</a>
+                                   <a href="{% url 'post_delete_blog' post.id %}" type="button" class="btn btn-danger float-start ms-1">حذف</a>
+                                </div>
+                                <div class="col-6">
+                                   <h6 class="card-title " style="text-align: left"> <b> {{ post.auther }}</b>   |  <b>{{ post.created_modified }}</b></h6>
+                                </div>
+                            </div>
+                        <p class="card-text">{{ post.text }}</p>
+                    </div>
+
+                </div>
+
+
+        </div>
+    </div>
+{% endblock content %}
+<!------------------------->
